@@ -1,0 +1,292 @@
+<html>
+<header>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Press+Start+2P');
+
+        body {
+            margin: 0;
+        }
+
+        .wrapper {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+        }
+
+        .bg--slide {
+            position: absolute;
+            top: 0;
+            width: calc(2560px * 3);
+            height: 100%;
+            background-image: url('https://jamesobrien.io/codepen/background.jpg');
+            background-repeat: repeat-x;
+            background-size: contain;
+            background-position: center;
+            animation: animate--slide 60s linear infinite;
+        }
+
+        .coin {
+            width: 45px;
+            height: 60px;
+            position: absolute;
+            top: 45%;
+            background-image: url('https://jamesobrien.io/codepen/coin.png');
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center;
+        }
+
+        .coin-box__box {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            width: 100px;
+            height: 100px;
+            position: relative;
+            background: linear-gradient(135deg, #dcba00 0%, #ffe65c 100%);
+            border: #f5d000 solid 5px;
+            border-top-color: #fff3b3;
+            border-bottom-color: #8f7900;
+            border-left-color: #ffdf29;
+            border-right-color: #ffe65c;
+            border-radius: 3px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .coin-box__text {
+            width: 100%;
+            margin-top: 10px;
+            padding-left: 170px;
+            color: white;
+            font-family: 'Press Start 2P';
+            font-size: 4.5em;
+            text-align: center;
+            text-shadow: 5px 2px 0 #262626;
+            user-select: none;
+            animation: animate--marquee 1.8s linear infinite;
+        }
+
+        .invitation-text {
+            width: 100%;
+            margin-top: 10px;
+            color: black;
+            font-family: 'Press Start 2P';
+            font-size: 2.5em;
+            text-align: center;
+            text-shadow: 5px 2px 0 #262626;
+            user-select: none;
+        }
+
+        .invitation {
+            border: 2px solid black;
+            padding: 10px;
+        }
+
+        .coin-box__rivet {
+            width: 8px;
+            height: 8px;
+            position: absolute;
+            margin: 5px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 50%;
+            box-shadow: inset 2px 2px 2px 0 #262626;
+        }
+
+        .coin-box__rivet:first-child {
+            top: 0;
+            left: 0;
+        }
+
+        .coin-box__rivet:nth-child(2) {
+            top: 0;
+            right: 0;
+        }
+
+        .coin-box__rivet:nth-child(3) {
+            bottom: 0;
+            left: 0;
+        }
+
+        .coin-box__rivet:last-child {
+            bottom: 0;
+            right: 0;
+        }
+
+        .coin--pop {
+            animation: animate--pop 1.3s ease;
+        }
+
+        .coin-box--squeeze {
+            animation: animate--squeeze 0.7s linear;
+        }
+
+        @keyframes animate--squeeze {
+            from {
+                transform: scale3d(1, 1, 1);
+            }
+
+            30% {
+                transform: scale3d(1.25, 0.75, 1);
+            }
+
+            40% {
+                transform: scale3d(0.75, 1.25, 1);
+            }
+
+            50% {
+                transform: scale3d(1.15, 0.85, 1);
+            }
+
+            65% {
+                transform: scale3d(0.95, 1.05, 1);
+            }
+
+            75% {
+                transform: scale3d(1.05, 0.95, 1);
+            }
+
+            to {
+                transform: scale3d(1, 1, 1);
+            }
+        }
+
+        @keyframes animate--pop {
+            from {
+                transform: translateY(0) rotateY(0deg);
+            }
+
+            25% {
+                transform: rotateY(-90deg);
+            }
+
+            50% {
+                transform: translateY(-175px) rotateY(-180deg);
+            }
+
+            75% {
+                transform: rotateY(-270deg);
+            }
+
+            to {
+                transform: translateY(0) rotateY(-360deg);
+            }
+        }
+
+        @keyframes animate--marquee {
+            from {
+                transform: translate(0, 0);
+            }
+
+            to {
+                transform: translate(-100%, 0);
+            }
+        }
+
+        @keyframes animate--slide {
+            0% {
+                transform: translate3d(0, 0, 0);
+            }
+
+            100% {
+                transform: translate3d(-2560px, 0, 0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .coin-box__box {
+                width: 60px;
+                height: 60px;
+            }
+
+            .coin-box__text {
+                margin-top: 5px;
+                padding-left: 100px;
+                font-size: 2.4em;
+            }
+
+            .invitation-text {
+                margin-top: 5px;
+                padding-left: 100px;
+                font-size: 2.4em;
+            }
+
+            .coin-box__rivet {
+                width: 5px;
+                height: 5px;
+            }
+
+            .coin {
+                width: 32px;
+                height: 48px;
+                top: 46%;
+            }
+        }
+
+        .visible {
+            display: block;
+        }
+
+        .hide {
+            display: none;
+        }
+    </style>
+
+</header>
+
+<body>
+
+    <div class='wrapper'>
+        <!-- <div class='bg--slide'></div> -->
+        <div class="invitation">
+            <div class="invitation-text">
+                Hola soy Isaac
+                <br />Te invito a mi cumpleaños
+                <br />
+                El domingo 26 de diciembre a las 12:30
+                <br />
+                En mi casa, los espero!!!
+
+            </div>
+        </div>
+        <div class='coin'></div>
+        <div onclick='activateCoinBox()' class='coin-box__box'>
+            <span class='coin-box__text'>?</span>
+            <div>
+                <div class='coin-box__rivet'></div>
+                <div class='coin-box__rivet'></div>
+                <div class='coin-box__rivet'></div>
+                <div class='coin-box__rivet'></div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        const coin = document.querySelector('.coin');
+        const invitation = document.querySelector('.invitation');
+        const box = document.querySelector('.coin-box__box');
+        invitation.classList.add('hide');
+        activateCoinBox = () => {
+            coin.classList.add('coin--pop')
+            box.classList.add('coin-box--squeeze')
+            setTimeout(() => {
+                invitation.classList.remove('hide')
+                invitation.classList.add('visible')
+                coin.classList.remove('coin--pop')
+                box.classList.remove('coin-box--squeeze')
+
+                coin.classList.add('hide')
+                box.classList.add('hide')
+            }, 1300)
+        }
+    </script>
+</body>
+
+</html>
